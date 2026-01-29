@@ -16,12 +16,18 @@ env.bak/
 venv.bak/
 
 # Data
+# Ignore all files inside data/raw
 data/raw/*
 !data/raw/.gitkeep
+
+# Ignore all files inside data/processed
 data/processed/*
 !data/processed/.gitkeep
+
+# Ignore all files inside models
 models/*
 !models/.gitkeep
+
 
 # IDEs
 .vscode/
