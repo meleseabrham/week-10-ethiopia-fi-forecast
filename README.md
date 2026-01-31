@@ -66,6 +66,20 @@ The project uses a unified dataset structure (`ethiopia_fi_unified_data.csv`) to
   - `notebooks/04-task4-forecasting.ipynb`: Logistic growth models and scenario generation.
   - `reports/task4_forecast_results.md`: Detailed forecast tables and policy recommendations.
 
-## Setup
+### Task 5: Dashboard Development
+**Objective**: Interactive visualization of insights and forecasts.
+- **Features**:
+  - **Executive Overview**: Real-time metrics and target gap analysis.
+  - **Trends**: Deep dive into Gender Gap and Mobile Money growth.
+  - **Forecast Simulator**: Interactive slider to adjust growth parameters (k) and policy boosts.
+  - **Projections**: Official scenario tables and answers to consortium questions.
+- **Outputs**:
+  - `dashboard/app.py`: Full Streamlit application code.
+
+## Setup & Running
 1. Install dependencies: `pip install -r requirements.txt`
-2. Run dashboard: `streamlit run dashboard/app.py`
+2. **Run Dashboard**:
+   ```bash
+   streamlit run dashboard/app.py
+   ```
+3. Run Tests: `pytest`
