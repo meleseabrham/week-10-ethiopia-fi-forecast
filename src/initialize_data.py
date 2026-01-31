@@ -95,19 +95,34 @@ add_event("policy", "Ethio Telecom Next Horizon Strategy", "2025-07-01", "Ethio 
 add_target("Access", "Account Ownership Target (NFIS-II)", "account_ownership_target", 0.70, "2025-12-31", "NBE")
 
 # --- Impact Links (Simplified for now) ---
-# Linking Telebirr Launch to Mobile Money Ownership
-data.append({
-    "record_type": "impact_link",
-    "parent_id": "Telebirr Launch", # Conceptual ID
-    "related_indicator": "mobile_money_ownership",
-    "impact_direction": "Positive",
-    "impact_magnitude": "High",
-    "lag_months": 12,
-    "confidence": "Medium",
-    "evidence_basis": "Historical Trend",
-    "collected_by": "System Init",
-    "collection_date": "2026-01-29"
-})
+# --- Impact Links (Validated in Task 3) ---
+impact_strategies = [
+    # Telebirr Impacts
+    {"parent_id": "Telebirr Launch", "related_indicator": "account_ownership", "dir": "Positive", "mag": 0.2, "lag": 24, "type": "observation", "note": "Slow conversion to formal accounts"},
+    {"parent_id": "Telebirr Launch", "related_indicator": "telebirr_users_m", "dir": "Positive", "mag": 0.9, "lag": 0, "type": "observation", "note": "Direct adoption"},
+    
+    # M-Pesa Impacts
+    {"parent_id": "M-Pesa Ethiopia Launch", "related_indicator": "account_ownership", "dir": "Positive", "mag": 0.1, "lag": 18, "type": "observation", "note": "Competition effect"},
+    {"parent_id": "M-Pesa Ethiopia Launch", "related_indicator": "mpesa_users_m", "dir": "Positive", "mag": 0.8, "lag": 0, "type": "observation", "note": "Direct adoption"},
+    
+    # Policy Impacts
+    {"parent_id": "NFIS-II Strategy Launch", "related_indicator": "account_ownership", "dir": "Positive", "mag": 0.4, "lag": 36, "type": "target", "note": "Long term policy effect on rural infra"}
+]
+
+for imp in impact_strategies:
+    data.append({
+        "record_type": "impact_link",
+        "parent_id": imp["parent_id"],
+        "related_indicator": imp["related_indicator"],
+        "impact_direction": imp["dir"],
+        "impact_magnitude": imp["mag"],
+        "lag_months": imp["lag"],
+        "confidence": "Medium",
+        "evidence_basis": "Task 3 Modeling",
+        "notes": imp["note"],
+        "collected_by": "Task 3 Model",
+        "collection_date": "2026-01-31"
+    })
 
 
 try:
