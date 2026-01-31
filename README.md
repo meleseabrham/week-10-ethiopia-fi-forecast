@@ -59,6 +59,13 @@ The project uses a unified dataset structure (`ethiopia_fi_unified_data.csv`) to
   - `reports/task3_methodology.md`: Documentation of the Event-Indicator Association Matrix.
   - `data/raw/ethiopia_fi_unified_data.csv`: Updated with validated Impact Links.
 
+### Task 4: Forecasting Access and Usage
+**Objective**: Project key indicators for 2025-2027 with uncertainty quantification.
+- **Key Findings**: Forecasting a "Status Quo" growth to **52% Account Ownership by 2025**, missing the 70% NFIS-II target. Optimistic scenario reaches **62% by 2027**.
+- **Outputs**:
+  - `notebooks/04-task4-forecasting.ipynb`: Logistic growth models and scenario generation.
+  - `reports/task4_forecast_results.md`: Detailed forecast tables and policy recommendations.
+
 ## Setup
 1. Install dependencies: `pip install -r requirements.txt`
 2. Run dashboard: `streamlit run dashboard/app.py`
