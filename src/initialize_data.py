@@ -110,7 +110,15 @@ data.append({
 })
 
 
-df = pd.DataFrame(data, columns=columns)
-output_path = "c:/project/kifya/week 10/ethiopia-fi-forecast/data/raw/ethiopia_fi_unified_data.csv"
-df.to_csv(output_path, index=False)
-print(f"Created {output_path} with {len(df)} records.")
+try:
+    df = pd.DataFrame(data, columns=columns)
+    output_path = "c:/project/kifya/week 10/ethiopia-fi-forecast/data/raw/ethiopia_fi_unified_data.csv"
+    
+    # Ensure directory exists
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    
+    df.to_csv(output_path, index=False)
+    print(f"Successfully created {output_path} with {len(df)} records.")
+except Exception as e:
+    print(f"CRITICAL ERROR during data initialization: {e}")
+    exit(1)
