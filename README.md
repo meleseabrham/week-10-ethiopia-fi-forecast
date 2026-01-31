@@ -51,6 +51,21 @@ The project uses a unified dataset structure (`ethiopia_fi_unified_data.csv`) to
   - `reports/task2_insights.md`: Summary of 5 key strategic insights.
   - `reports/figures/`: Generated plots (Access Trajectory, Data Coverage, Event Timeline).
 
+### Task 3: Event Impact Modeling
+**Objective**: Quantify how events (Policies, Product Launches) affect key indicators.
+- **Key Findings**: modeled the "Access vs Usage" disconnect. Confirmed that while Mobile Money (Telebirr) launch drives massive immediate Usage (Mag 0.9, Lag 0), it has a much smaller, lagged effect on Formal Account Ownership (Mag 0.2, Lag 24).
+- **Outputs**:
+  - `notebooks/03-task3-impact-modeling.ipynb`: Validation of impact hypotheses.
+  - `reports/task3_methodology.md`: Documentation of the Event-Indicator Association Matrix.
+  - `data/raw/ethiopia_fi_unified_data.csv`: Updated with validated Impact Links.
+
+### Task 4: Forecasting Access and Usage
+**Objective**: Project key indicators for 2025-2027 with uncertainty quantification.
+- **Key Findings**: Forecasting a "Status Quo" growth to **52% Account Ownership by 2025**, missing the 70% NFIS-II target. Optimistic scenario reaches **62% by 2027**.
+- **Outputs**:
+  - `notebooks/04-task4-forecasting.ipynb`: Logistic growth models and scenario generation.
+  - `reports/task4_forecast_results.md`: Detailed forecast tables and policy recommendations.
+
 ## Setup
 1. Install dependencies: `pip install -r requirements.txt`
 2. Run dashboard: `streamlit run dashboard/app.py`
