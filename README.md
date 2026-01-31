@@ -13,6 +13,13 @@ Build a forecasting system that predicts Ethiopia's progress on two core dimensi
 - **Access**: Account Ownership Rate
 - **Usage**: Digital Payment Adoption Rate
 
+## Unified Schema Definition
+The project uses a unified dataset structure (`ethiopia_fi_unified_data.csv`) to handle multiple record types consistently:
+- **Observation**: Actual measured values (e.g., % account ownership).
+- **Event**: Discrete milestones (e.g., policy launch, product market entry).
+- **Target**: Official policy goals (e.g., 70% inclusion by 2025).
+- **Impact Link**: Modeled relationships linking events to indicators via `parent_id`.
+
 ## Directory Structure
 - `data/`: Raw and processed data
 - `notebooks/`: Jupyter notebooks for analysis
