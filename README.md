@@ -77,7 +77,7 @@ The project uses a unified dataset structure (`ethiopia_fi_unified_data.csv`) to
   - `dashboard/app.py`: Full Streamlit application code.
 
 ## Setup & Running
-1. Install dependencies: `pip install -r requirements.txt`
+1. Install dependencies: `python -m streamlit run dashboard/app.py`
 2. **Run Dashboard**:
    ```bash
    streamlit run dashboard/app.py
