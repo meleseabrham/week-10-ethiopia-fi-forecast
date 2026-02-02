@@ -44,4 +44,27 @@ if not usage.empty and not wages.empty:
     plt.savefig('reports/figures/eda_usage_patterns.png')
     plt.close()
 
-print("New figures saved to reports/figures/")
+# --- 3. Event Timeline Visualization ---
+events = df[df['record_type'] == 'event'].sort_values('observation_date')
+acc = obs[obs['indicator_code'] == 'account_ownership'].sort_values('observation_date')
+
+if not acc.empty:
+    plt.figure(figsize=(14, 7))
+    plt.plot(pd.to_datetime(acc['observation_date']), acc['value_numeric'], marker='o', linewidth=3, color='#2c3e50', label='Account Ownership Rate')
+    
+    # Overlay Events
+    colors = {'policy': '#e74c3c', 'product_launch': '#3498db', 'infrastructure': '#27ae60'}
+    for _, event in events.iterrows():
+        ev_date = pd.to_datetime(event['observation_date'])
+        plt.axvline(ev_date, color=colors.get(event['category'], 'gray'), linestyle='--', alpha=0.8)
+        plt.text(ev_date, 0.05, f" {event['indicator']}", rotation=90, verticalalignment='bottom', fontweight='bold', fontsize=10)
+
+    plt.title('Milestones in Ethiopia\'s Financial Inclusion Journey', fontsize=16, fontweight='bold')
+    plt.ylabel('Ownership Rate', fontsize=12)
+    plt.ylim(0, 0.6)
+    plt.legend(loc='upper left')
+    plt.tight_layout()
+    plt.savefig('reports/figures/eda_event_timeline.png')
+    plt.close()
+
+print("New figures saved to reports/figures/ (including Event Timeline)")
